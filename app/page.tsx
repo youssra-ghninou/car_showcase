@@ -1,3 +1,4 @@
+import CarCard from '@/components/CarCard'
 import CustomFilter from '@/components/CustomFilter'
 import Hero from '@/components/Hero'
 import SearchBar from '@/components/SearchBar'
@@ -17,13 +18,15 @@ export default async function Home() {
           <p>Explore the cars you might like</p>
           <div className="home__filters">
             <SearchBar />
-            {/* <div className="home__filter-container">
+            <div className="home__filter-container">
               <CustomFilter title="fuel" />
               <CustomFilter title="year" />
-            </div> */}
+            </div>
             {!isDataEmpty ? (
               <section>
-                We have cars
+                <div className='home__cars-wrapper'>
+                  {allCars?.map((car)=> <CarCard car={car}/>)}
+                </div>
               </section>
             ) : (
               <div className='home__error-container'>
