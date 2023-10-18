@@ -2,6 +2,7 @@ import CarCard from '@/components/CarCard'
 import CustomFilter from '@/components/CustomFilter'
 import Hero from '@/components/Hero'
 import SearchBar from '@/components/SearchBar'
+import ShowMore from '@/components/ShowMore'
 import { fuels, yearsOfProduction } from '@/constants'
 import { fetchCars } from '@/utils'
 import Image from 'next/image'
@@ -31,9 +32,10 @@ export default async function Home({searchParams}) {
             </div>
             {!isDataEmpty ? (
               <section>
-                <div className='home__cars-wrapper'>
+                <div className='home__cars-wrapper w-fit'>
                   {allCars?.map((car)=> <CarCard car={car}/>)}
                 </div>
+                <ShowMore/>
               </section>
             ) : (
               <div className='home__error-container'>
